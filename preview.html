@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Khidir</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#050505;
+  color:#fff;
+  font-family:'Inter',sans-serif;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  z-index:10;
+}
+
+nav h1{
+  font-family:'Bebas Neue';
+}
+
+nav a{
+  margin-left:25px;
+  color:#aaa;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+nav a:hover{color:#fff}
+
+/* HERO */
+#hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+h2{
+  font-family:'Bebas Neue';
+  font-size:80px;
+}
+
+h2 span{color:#ff1a1a}
+
+.sub{
+  color:#aaa;
+  margin-top:10px;
+}
+
+/* SWORD */
+#sword{
+  width:600px;
+  margin:50px 0;
+  cursor:pointer;
+  transition:.3s;
+}
+
+#sword:hover{
+  transform:scale(1.05);
+  filter:drop-shadow(0 0 25px rgba(255,0,0,0.4));
+}
+
+/* SLASH */
+.slash{
+  position:fixed;
+  height:2px;
+  width:100%;
+  top:50%;
+  left:-100%;
+  background:linear-gradient(to right,transparent,#fff,transparent);
+  animation:slash .4s forwards;
+}
+
+@keyframes slash{
+  to{left:100%;opacity:0}
+}
+
+/* SECTION */
+section{
+  padding:120px 60px;
+  max-width:1000px;
+  margin:auto;
+}
+
+h3{
+  font-family:'Bebas Neue';
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+/* CARDS */
+.card{
+  border:1px solid #222;
+  padding:20px;
+  margin-bottom:20px;
+  transition:.3s;
+}
+
+.card:hover{
+  border-color:#ff1a1a;
+  transform:translateY(-5px);
+}
+
+/* BUTTON */
+.btn{
+  margin-top:20px;
+  padding:10px 25px;
+  border:1px solid #ff1a1a;
+  background:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:#ff1a1a;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>KHIDIR</h1>
+  <div>
+    <a onclick="go('hero')">Home</a>
+    <a onclick="go('about')">About</a>
+    <a onclick="go('skills')">Skills</a>
+    <a onclick="go('projects')">Projects</a>
+    <a onclick="go('contact')">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <h2>MOHAMED <span>KHIDIR</span></h2>
+  <p class="sub">Junior Developer · C · Java · Problem Solving</p>
+
+  <!-- SWORD -->
+  <svg id="sword" viewBox="0 0 800 110">
+
+    <rect x="10" y="45" width="140" height="20" rx="4" fill="#111"/>
+    <ellipse cx="160" cy="55" rx="12" ry="26" fill="#1a0000"/>
+
+    <defs>
+      <linearGradient id="blade" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#111"/>
+        <stop offset="50%" stop-color="#550000"/>
+        <stop offset="100%" stop-color="#ff1a1a"/>
+      </linearGradient>
+    </defs>
+
+    <path d="M170 55 L180 48 C400 42 600 45 790 54 L790 56 C600 47 400 44 180 50 Z"
+          fill="url(#blade)"/>
+
+  </svg>
+
+  <button class="btn" onclick="go('projects');slash()">View Projects</button>
+</section>
+
+<section id="about">
+  <h3>About Me</h3>
+  <p>
+    Junior developer with hands-on experience in C programming, problem solving,
+    and object-oriented concepts. Focused on learning modern technologies and
+    contributing to real-world projects through clean, efficient code.
+  </p>
+</section>
+
+<section id="skills">
+  <h3>Skills</h3>
+
+  <div class="card">
+    <b>Programming:</b> C, Java (basic)
+  </div>
+
+  <div class="card">
+    <b>Tools:</b> Git & GitHub, VS Code, Eclipse, Linux, Android Studio
+  </div>
+
+  <div class="card">
+    <b>Concepts:</b> Data Structures, Problem Solving, Clean Code
+  </div>
+
+  <div class="card">
+    <b>Soft Skills:</b> Communication, Teamwork, Fast Learner, Adaptability
+  </div>
+
+</section>
+
+<section id="projects">
+  <h3>Projects</h3>
+
+  <div class="card">
+    <h4>Student Management System</h4>
+    <p>C program managing student records using structures and file handling.</p>
+  </div>
+
+  <div class="card">
+    <h4>Java Calculator</h4>
+    <p>Simple calculator built using Java (OOP concepts).</p>
+  </div>
+
+  <div class="card">
+    <h4>Portfolio Website</h4>
+    <p>This interactive portfolio with animations and UI design.</p>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h3>Contact</h3>
+  <p>Email: jpjpmohammed@gmail.com</p>
+  <p>Phone: +90 531 654 6716</p>
+  <p>LinkedIn: Mohammed Khidir</p>
+</section>
+
+<script>
+function go(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+function slash(){
+  const s=document.createElement('div');
+  s.className='slash';
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),400);
+}
+</script>
+
+</body>
+</html>
